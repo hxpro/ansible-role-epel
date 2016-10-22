@@ -33,6 +33,9 @@
 
 - name: tear down
   hosts: localhost
+  gather_facts: no
+  connection: local
+
   tasks:
     - name: Destroy container centos7
       docker_container:
