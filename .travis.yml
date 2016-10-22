@@ -17,7 +17,7 @@ addons:
 install:
   # Install ansible
   - pip install ansible
-  - pip install docker-py==1.9.0
+  - pip install docker-compose
   - pip list
 
   # Check ansible version
@@ -28,8 +28,9 @@ install:
 
 script:
   # Basic role syntax check
-  - cd tests && ansible-playbook test.yml --syntax-check
-  - cd tests && ansible-playbook test.yml
+  - cd tests
+  - ansible-playbook test.yml --syntax-check
+  - ansible-playbook test.yml
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
