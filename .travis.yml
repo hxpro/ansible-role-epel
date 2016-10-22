@@ -5,6 +5,9 @@ python: "2.7"
 # Use the new container infrastructure
 sudo: false
 
+services:
+  - docker
+
 # Install ansible
 addons:
   apt:
@@ -14,6 +17,7 @@ addons:
 install:
   # Install ansible
   - pip install ansible
+  - pip install docker-py
 
   # Check ansible version
   - ansible --version
