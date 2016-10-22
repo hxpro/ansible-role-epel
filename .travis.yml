@@ -13,11 +13,16 @@ addons:
     packages:
     - python-pip
 
+before_install:
+  - docker pull centos:6
+  - docker pull centos:7
+
 install:
   # Install ansible
   - sudo pip install ansible
   - sudo pip install docker-py==1.9.0
   - pip list
+  - sudo pip list
 
   # Check ansible version
   - ansible --version
