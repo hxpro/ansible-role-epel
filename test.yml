@@ -9,27 +9,29 @@
       docker_container:
         name: centos7
         image: centos:7
+        recreate: yes
         command: tail -f /dev/null
         state: started
 
     - name: add centos7 host
-      add_host: name=centos7
+      add_host: name=centos7 groups=containers
  
     - name: Create container centos6
       docker_container:
         name: centos6
         image: centos:6
+        recreate: yes
         command: tail -f /dev/null
         state: started
 
     - name: add centos6 host
-      add_host: name=centos6
+      add_host: name=centos6 groups=containers
 
 - name: test role
-  hosts: centos6,centos7
+  hosts: containers
   connection: docker
   roles:
-    - ansible-role-epel
+    - "{{ playbook_dir }}"
 
 - name: tear down
   hosts: localhost
@@ -37,7 +39,7 @@
   connection: local
 
   tasks:
-    - name: Destroy container centos7
+    - name: Destroy containers
       docker_container:
         name: '{{ item }}'
         state: absent

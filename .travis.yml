@@ -27,13 +27,10 @@ install:
   # Check ansible version
   - ansible --version
 
-  # Create ansible.cfg with correct roles_path
-  - printf '[defaults]\nroles_path=../' >ansible.cfg
-
 script:
   # Basic role syntax check
-  - cd tests
   - ansible-playbook test.yml --syntax-check
+  # Test role using docker containers
   - ansible-playbook test.yml
 
 notifications:
