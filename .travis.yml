@@ -1,37 +1,22 @@
 ---
 language: python
-python: "2.7"
-
-sudo: true
+python:
+  - "2.7"
+  - "3.7"
 
 services:
   - docker
 
-# Install ansible
 addons:
   apt:
     packages:
     - python-pip
 
-before_install:
-  - docker pull centos:6
-  - docker pull centos:7
-
 install:
-  # Install ansible
-  - sudo pip install ansible
-  - sudo pip install docker-py==1.9.0
-  - pip list
-  - sudo pip list
-
-  # Check ansible version
-  - ansible --version
+  - pip install ansible molecule[docker]
 
 script:
-  # Basic role syntax check
-  - ansible-playbook test.yml --syntax-check
-  # Test role using docker containers
-  - ansible-playbook test.yml
+  - molecule test
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

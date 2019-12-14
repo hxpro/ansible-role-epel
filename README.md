@@ -1,19 +1,21 @@
 hxpro.epel
 ==========
 
-Install EPEL repository for CentOS 7
+Install EPEL repository for CentOS
 
 Requirements
 ------------
 
-yum
+CentOS, for other distributions has no effect
 
 Example Playbook
 ----------------
 
+```
     - hosts: servers
       roles:
-         - { role: hxpro.epel }
+        - hxpro.epel
+```
 
 License
 -------
@@ -23,4 +25,4 @@ WTFPL
 Author Information
 ------------------
 
-Ansible novice
+Matěj Koudelka <matej@hxpro.cz>

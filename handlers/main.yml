@@ -1,0 +1,6 @@
+---
+- name: Update epel-release on CentOS
+  package:
+    name: epel-release
+    state: present
+  listen: update_epel
