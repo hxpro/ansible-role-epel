@@ -13,7 +13,7 @@ addons:
     - python-pip
 
 install:
-  - pip install ansible molecule[docker] ansible-lint
+  - pip install ansible molecule[docker] ansible-lint pytest-flake8
 
 script:
   - molecule test
