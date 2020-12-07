@@ -1,4 +1,4 @@
-hxpro.epel
+Ansible role: epel
 ==========
 
 [![Build Status](https://travis-ci.org/hxpro/ansible-role-epel.svg?branch=master)](https://travis-ci.org/hxpro/ansible-role-epel)
@@ -22,7 +22,7 @@ Example Playbook
 License
 -------
 
-WTFPL
+[WTFPL](https://raw.githubusercontent.com/hxpro/ansible-role-epel/master/LICENSE)
 
 Author Information
 ------------------

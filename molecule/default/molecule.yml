@@ -3,12 +3,12 @@ dependency:
   name: galaxy
 driver:
   name: docker
-lint:
-  name: yamllint
+lint: |
+  set -e
+  yamllint molecule/default/converge.yml
+  ansible-lint molecule/default/converge.yml
+  flake8 molecule/default/
 platforms:
-  - name: centos6
-    image: centos:6
-    pre_build_image: true
   - name: centos7
     image: centos:7
     pre_build_image: true
@@ -17,9 +17,5 @@ platforms:
     pre_build_image: true
 provisioner:
   name: ansible
-  lint:
-    name: ansible-lint
 verifier:
   name: testinfra
-  lint:
-    name: flake8
